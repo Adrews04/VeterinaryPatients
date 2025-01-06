@@ -6,6 +6,7 @@ import {
     ServerError,
     IncorrectPasswordError
 } from '../Errors/Errors.js'
+import bcrypt from 'bcrypt'
 
 
 const registerUser_Serv = async (user: object) => {
@@ -15,7 +16,7 @@ const registerUser_Serv = async (user: object) => {
         if (existingUser) {
             throw new AlreadyInDatabaseError('User')
         }
-
+        newUser.password = await bcrypt.hash(newUser.password, 10)
         await newUser.save()
     } catch (error) {
         if (error instanceof Error) {
@@ -34,7 +35,7 @@ const loginUser_Serv = async (user: object) => {
             throw new NotFoundError('User', 'email')
         }
 
-        const correctPassword = existingEmail.password === userToLogin.password
+        const correctPassword = await bcrypt.compare(userToLogin.password, existingEmail.password)
 
         if (!correctPassword) {
             throw new IncorrectPasswordError()
