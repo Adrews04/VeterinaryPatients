@@ -15,6 +15,8 @@ const registerUser_Serv = async (user: object) => {
         if (existingUser) {
             throw new AlreadyInDatabaseError('User')
         }
+
+        await newUser.save()
     } catch (error) {
         if (error instanceof Error) {
             throw error

@@ -15,6 +15,9 @@ const addPatient_Ser = async (patient: object) => {
         if (existingPatient){
             throw new AlreadyInDatabaseError('Patient')
         }
+
+        await newPatient.save()
+
     }catch(error){
         if(error instanceof Error){
             throw error
@@ -25,7 +28,7 @@ const addPatient_Ser = async (patient: object) => {
 
 const getPatients_Ser = async () => {
     try {
-        const patients = await PatientModel.find({veterinaryID: 'current'})
+        const patients = await PatientModel.find(/* {veterinaryID: 'current'} */)
 
         if(patients.length === 0){
             throw new NotFoundError('veterinary','Patients')

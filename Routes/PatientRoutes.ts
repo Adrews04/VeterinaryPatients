@@ -16,12 +16,12 @@ const patientSchema = Joi.object({
     specie: Joi.string().max(50).required(),
     race: Joi.string().max(50).required(),
     age: Joi.number().min(0).required(),
-    owner: Joi.string().max(50).required(),
+    ownerName: Joi.string().max(50).required(),
     phone: Joi.string().min(10).max(15).required()
 })
 
 const validatePatient = (req:express.Request, res:express.Response, next:express.NextFunction) => {
-    const{ error} = patientSchema.validate(req.body, {abortEarly: false})
+    const{error} = patientSchema.validate(req.body, {abortEarly: false})
 
     if(error){
         res.status(400).json ({
@@ -33,10 +33,10 @@ const validatePatient = (req:express.Request, res:express.Response, next:express
     next()
 }
 
-patientsRouter.post('/pacientes', validatePatient, addPatient_Cont)
-patientsRouter.get('/pacientes', getPatients_Cont)
-patientsRouter.get('/pacientes/:id', getPatient_Cont)
-patientsRouter.put('/pacientes/:id', validatePatient, updatePatient_Cont)
-patientsRouter.delete('/pacientes/:id', deletePatient_Cont)   
+patientsRouter.post('/patients', validatePatient, addPatient_Cont)
+patientsRouter.get('/patients', getPatients_Cont)
+patientsRouter.get('/patients/:id', getPatient_Cont)
+patientsRouter.put('/patients/:id', updatePatient_Cont)
+patientsRouter.delete('/patients/:id', deletePatient_Cont)   
 
 export default patientsRouter

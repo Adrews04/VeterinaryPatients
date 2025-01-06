@@ -6,7 +6,7 @@
   "exports": "./dist/index.js",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "tsx watch index.ts",
     "build": "pkgroll",
     "start": "node dsit/index.js"
   },

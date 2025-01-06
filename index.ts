@@ -1,7 +1,7 @@
 import express from 'express'
-import userRouter from './Routers/userRoutes.js'
-import patientsRouter from './Routers/patientsRoutes.js'
-import connectDB from ' ./models/ConnectDB.js'
+import userRouter from './Routes/UserRoutes.js'
+import patientsRouter from './Routes/PatientRoutes.js'
+import connectDB from './models/ConnectDB.js'
 
 connectDB()
 const app = express()
@@ -14,5 +14,5 @@ app.use(patientsRouter)
 app.use(userRouter)
 
 app.listen(PORT,()=>
-	  console.log(`Server stated correctly in port `${PORT}`)
+	  console.log(`Server stated correctly in port ${PORT}`)
 	  )

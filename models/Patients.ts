@@ -6,7 +6,7 @@ const PatientSchema = new Schema({
     race: { type: String, required: true, trim: true},
     age: { type: Number, required: true, min: 0},
     ownerName: { type: String, required: true, trim: true},
-    veterinaryID: { type: String, required: true, trim: true}
+    veterinaryID: { type: String, required: false, trim: true}
 })
 
 const PatientModel = mongoose.model('Patient', PatientSchema)
