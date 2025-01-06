@@ -2,10 +2,10 @@
 -- models patient 
 -- services patient 
 -- git ignore
-patient routes
-connectDb file
-user models 
-user services 
-users routes
-user controllers 
-errors
+-- patient routes
+-- connectDb file
+-- user models 
+-- user services 
+-- user controllers 
+-- users routes
+-- errors

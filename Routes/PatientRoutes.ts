@@ -13,9 +13,11 @@ const patientsRouter = express.Router()
 
 const patientSchema = Joi.object({
     name: Joi.string().max(50).required(),
-    email: Joi.string().email().required(),
-    password: Joi.string().min(8).required(),
-    phone: Joi.string().min(10).max(15).optional()
+    specie: Joi.string().max(50).required(),
+    race: Joi.string().max(50).required(),
+    age: Joi.number().min(0).required(),
+    owner: Joi.string().max(50).required(),
+    phone: Joi.string().min(10).max(15).required()
 })
 
 const validatePatient = (req:express.Request, res:express.Response, next:express.NextFunction) => {

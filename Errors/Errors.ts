@@ -34,10 +34,18 @@ class ServerError extends Error{
     }
 }
 
+class IncorrectPasswordError extends Error{
+    constructor(){
+        super("Incorrect password!")
+        this.name = "IncorrectPasswordError"
+    }
+}
+
 export {
     AlreadyInDatabaseError,
     NotFoundError,
     ReadingError,
     NonInDatabaseError,
-    ServerError
+    ServerError,
+    IncorrectPasswordError
 }
