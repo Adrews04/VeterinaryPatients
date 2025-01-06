@@ -1,0 +1,31 @@
+{
+  "name": "veterinarypatients",
+  "version": "1.0.0",
+  "description": "Project to create an API to manage veterinary patients with users login with authentication, patients info, and password security",
+  "main": "index.js",
+  "exports": "./dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch index.ts",
+    "build": "pkgroll",
+    "start": "node dsit/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "pkgroll": "^2.6.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.5",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "joi": "^17.13.3",
+    "mongoose": "^8.9.3"
+  }
+}
